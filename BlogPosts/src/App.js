@@ -1,4 +1,5 @@
 import './App.css';
+
 import { RootRouter } from './navigation/RootRouter';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       }}
     >
       <RootRouter />
+
     </div>
   );
 }
