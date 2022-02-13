@@ -1,10 +1,18 @@
 import './App.css';
-import { PostList } from './components/PostList/PostList';
+
+import { RootRouter } from './navigation/RootRouter';
 
 function App() {
   return (
-    <div>
-      <PostList />
+    <div
+      style={{
+        maxWidth: '1569px',
+        width: '100%',
+        background: '#F8FAFE',
+      }}
+    >
+      <RootRouter />
+
     </div>
   );
 }

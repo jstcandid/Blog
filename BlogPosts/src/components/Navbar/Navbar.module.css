@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  background: #016efc;
+}
+
+.wrapper {
+  padding: 58px 114px 58px 114px;
+}
+
+.header_img {
+  margin-bottom: 47px;
+}
+
+.img {
+  width: 25px;
+  height: 25px;
+}
+
+.content_wrapper {
+  display: flex;
+  margin-left: 82px;
+  justify-content: space-between;
+}
+
+.content_navBar {
+  display: flex;
+}
+
+.content_allPosts {
+  margin-right: 40px;
+}
