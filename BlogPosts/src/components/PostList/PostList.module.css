@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+
+  flex-wrap: wrap;
+  margin: 54px 114px 0 114px;
+}
