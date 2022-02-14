@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   width: 341px;
-  background: #ffffff;
   border: 1px solid #c6ddff;
   box-sizing: border-box;
   /* shadow */
@@ -30,7 +29,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 23px;
-  color: #4f4f4f;
+  /* color: #4f4f4f; */
   margin: 0 0 23px;
 }
 
@@ -40,7 +39,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
-  color: #979797;
+  /* color: #979797; */
   margin: 0 0 45px;
 }
 
@@ -49,7 +48,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  color: #016efc;
+  /* color: #016efc; */
   position: absolute;
   bottom: 0;
   left: 0;
