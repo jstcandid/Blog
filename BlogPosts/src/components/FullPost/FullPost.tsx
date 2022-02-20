@@ -5,9 +5,13 @@ import { IPost } from '../Post/Post';
 
 import styles from './FullPost.module.css';
 
+type Params = {
+  postId: string;
+};
+
 export const FullPost = () => {
   const { theme } = useContext(Context);
-  const params: any = useParams();
+  const params: Params = useParams();
   const [post, setPost] = useState<IPost>();
 
   useEffect(() => {

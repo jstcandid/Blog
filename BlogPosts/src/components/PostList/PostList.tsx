@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Button } from '../Button/Button';
+import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Context } from '../../App';
+import { IState } from '../../redux/store';
 import { Post, IPost } from '../Post/Post';
 import styles from './PostList.module.css';
 
 const LIMIT = 5;
 
 export const PostList = () => {
-  const [posts, setPosts] = useState<IPost[]>([]);
-
+  const posts = useSelector((state: IState) => state.PostsReducer.posts);
+  const dispatch = useDispatch();
+  const { theme } = useContext(Context);
   const [offset, setOffset] = useState(0);
 
   const loadMore = useCallback(() => {
@@ -20,23 +24,29 @@ export const PostList = () => {
     )
       .then((response) => response.json())
       .then((res) => {
-        setPosts([...posts, ...res.results]);
+        dispatch({ type: 'ADD_POSTS', posts: res.results });
       });
   }, [offset]);
 
   return (
-    <div className={`${styles.container}`}>
-      {posts.map((item: IPost) => (
-        <Post
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          text={item.text}
-          image={item.image}
-          date={item.date}
-        />
-      ))}
-      <Button text='More...' onClick={loadMore} />
-    </div>
+    <>
+      <div className={`${styles.container}`}>
+        {posts.map((item: IPost) => (
+          <Post
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            text={item.text}
+            image={item.image}
+            date={item.date}
+          />
+        ))}
+        <div className={`${styles.a}`}>
+          <a style={{ color: theme.textColor }} onClick={loadMore}>
+            More...
+          </a>
+        </div>
+      </div>
+    </>
   );
 };

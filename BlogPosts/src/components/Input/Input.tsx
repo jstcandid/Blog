@@ -1,5 +1,6 @@
 import styles from './Input.module.css';
-
+import { useContext } from 'react';
+import { Context } from '../../App';
 import { ChangeEventHandler } from 'react';
 
 interface IProps {
@@ -9,9 +10,10 @@ interface IProps {
 }
 
 export function Input({ text, value, onChange }: IProps) {
+  const { theme } = useContext(Context);
   return (
     <div className={`${styles.input}`}>
-      <p>{text}</p>
+      <p style={{ color: theme.titleColor }}>{text}</p>
       <input
         className={`${styles.input_item}`}
         onChange={onChange}

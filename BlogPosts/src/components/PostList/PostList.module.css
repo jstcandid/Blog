@@ -2,5 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   margin: 54px 114px 0 114px;
+}
 
+a {
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+
+.a {
+  display: flex;
+  align-items: flex-end;
+  padding-right: 100px;
 }

@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import styles from './Button.module.css';
+import { useContext } from 'react';
 import { Context } from '../../App';
 interface IProps {
   text: string;
@@ -7,10 +7,15 @@ interface IProps {
 }
 
 export function Button({ text, onClick }: IProps) {
-  const contextValue = useContext(Context);
+  const { theme } = useContext(Context);
   return (
     <div>
-      <button onClick={onClick} type='button' className={`${styles.button}`}>
+      <button
+        style={{ color: theme.colorButton, background: theme.backgroundButton }}
+        onClick={onClick}
+        type='button'
+        className={`${styles.button}`}
+      >
         {text}
       </button>
     </div>

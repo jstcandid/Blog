@@ -1,8 +1,10 @@
 import styles from './Login.module.css';
 import { useEffect, useState } from 'react';
-import { Registration } from '../Registration/Registration';
+import { Registration } from '../RegistrationTab/RegistrationTab';
 import { LoginTab } from '../LoginTab/LoginTab';
 import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../../App';
 
 interface IProps {
   login: boolean;
@@ -10,6 +12,7 @@ interface IProps {
 }
 
 export const Login = ({ login, username }: IProps) => {
+  const { theme } = useContext(Context);
   const location = useLocation();
   const [mode, setMode] = useState(location.pathname.includes('login'));
 
@@ -22,13 +25,13 @@ export const Login = ({ login, username }: IProps) => {
       <div className={`${styles.login}`}>
         <div className={`${styles.header}`}>
           <Link style={{ textDecoration: 'none' }} to='/login'>
-            <pre className={mode ? `${styles.onChange}` : ''}>Login</pre>
+            <pre style={mode ? { color: theme.onChange } : {}}>Login</pre>
           </Link>
 
           <pre> | </pre>
 
           <Link style={{ textDecoration: 'none' }} to='/registration'>
-            <pre className={mode ? `` : `${styles.onChange}`}>
+            <pre style={mode ? {} : { color: theme.onChange }}>
               {' '}
               Registration
             </pre>
