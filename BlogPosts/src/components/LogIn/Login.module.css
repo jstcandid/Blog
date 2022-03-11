@@ -1,5 +1,7 @@
 .wrapper {
   padding: 58px 114px 58px 114px;
+  display: flex;
+  justify-content: center;
 }
 
 .login {
@@ -19,4 +21,9 @@ pre {
   font-size: 45px;
   letter-spacing: 0.03em;
   color: #75869b;
+}
+
+.cont {
+  max-width: 372px;
+  width: 100%;
 }

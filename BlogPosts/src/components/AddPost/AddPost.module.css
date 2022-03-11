@@ -1,0 +1,32 @@
+.wrapper {
+  padding: 0 114px 58px 114px;
+}
+
+.header_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.header_back {
+  position: absolute;
+  left: 114px;
+  transform: translateY(-100%);
+}
+
+.header {
+  margin: 0 0 46px 0;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+}
+
+.wrapper_body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapper_button {
+  display: flex;
+  justify-content: center;
+}

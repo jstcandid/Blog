@@ -22,22 +22,24 @@ export const Login = ({ login, username }: IProps) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <div className={`${styles.login}`}>
-        <div className={`${styles.header}`}>
-          <Link style={{ textDecoration: 'none' }} to='/login'>
-            <pre style={mode ? { color: theme.onChange } : {}}>Login</pre>
-          </Link>
+      <div className={`${styles.cont}`}>
+        <div className={`${styles.login}`}>
+          <div className={`${styles.header}`}>
+            <Link style={{ textDecoration: 'none' }} to='/login'>
+              <pre style={mode ? { color: theme.onChange } : {}}>Login</pre>
+            </Link>
 
-          <pre> | </pre>
+            <pre> | </pre>
 
-          <Link style={{ textDecoration: 'none' }} to='/registration'>
-            <pre style={mode ? {} : { color: theme.onChange }}>
-              {' '}
-              Registration
-            </pre>
-          </Link>
+            <Link style={{ textDecoration: 'none' }} to='/registration'>
+              <pre style={mode ? {} : { color: theme.onChange }}>
+                {' '}
+                Registration
+              </pre>
+            </Link>
+          </div>
+          {mode ? <LoginTab /> : <Registration />}
         </div>
-        {mode ? <LoginTab /> : <Registration />}
       </div>
     </div>
   );

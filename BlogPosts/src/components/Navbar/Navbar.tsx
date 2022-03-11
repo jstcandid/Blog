@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Context } from '../../App';
+import { IState } from '../../redux/store';
 import { Toggler } from '../Toggler/Toggler';
 import styles from './Navbar.module.css';
 
@@ -10,6 +12,9 @@ interface IProps {
 
 export const Navbar = ({ makeActive }: IProps) => {
   const { isDark, changeIsDark, theme } = useContext(Context);
+  const { isLoggedIn, username } = useSelector(
+    (state: IState) => state.authReducer
+  );
 
   return (
     <div style={theme} className={`${styles.header}`}>
@@ -29,6 +34,7 @@ export const Navbar = ({ makeActive }: IProps) => {
             />
           </svg>
         </div>
+        {isLoggedIn ? <p>{username}</p> : null}
         <div className={`${styles.content_wrapper}`}>
           <div className={`${styles.content_navBar}`}>
             <div className={`${styles.content_allPosts}`}>

@@ -12,5 +12,14 @@
   line-height: 29px;
   letter-spacing: 0.05em;
   color: #ffffff;
-  margin-top: 40px;
+}
+
+p {
+  text-align: start;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  letter-spacing: 0.05em;
 }

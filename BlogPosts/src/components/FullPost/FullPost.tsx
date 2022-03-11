@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Context } from '../../App';
-import { IPost } from '../Post/Post';
-
+import { cleanPostState, fetchPost } from '../../redux/actions/PostsActions';
+import { IState } from '../../redux/store';
+import { useHistory } from 'react-router-dom';
 import styles from './FullPost.module.css';
 
 type Params = {
@@ -10,24 +12,25 @@ type Params = {
 };
 
 export const FullPost = () => {
-  const { theme } = useContext(Context);
+  const { theme, isDark, changeIsDark } = useContext(Context);
   const params: Params = useParams();
-  const [post, setPost] = useState<IPost>();
 
+  const post = useSelector((state: IState) => state.PostsReducer.post);
+  const dispatch = useDispatch();
+
+  const history = useHistory();
   useEffect(() => {
     getPostInfo();
+    return () => {
+      dispatch(cleanPostState());
+    };
   }, []);
 
   const getPostInfo = async () => {
-    const res = await fetch(
-      'https://studapi.teachmeskills.by/blog/posts/' + params.postId
-    );
-    const post = await res.json();
-
-    setPost(post);
+    dispatch(fetchPost(params.postId));
   };
 
-  return post ? (
+  return post.title ? (
     <div className={`${styles.wrapper}`}>
       <p style={{ color: theme.color }} className={`${styles.header}`}>
         {' '}
@@ -48,6 +51,20 @@ export const FullPost = () => {
           {post.date}
         </p>
       </div>
+      <svg
+        className={`${styles.arrow}`}
+        onClick={history.goBack}
+        xmlns='http://www.w3.org/2000/svg'
+        fill-rule='evenodd'
+        clip-rule='evenodd'
+        width='33'
+        height='33'
+      >
+        <path
+          d='M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm3 5.753l-6.44 5.247 6.44 5.263-.678.737-7.322-6 7.335-6 .665.753z'
+          fill={isDark ? '#FFFFFF' : '#016efc'}
+        />
+      </svg>
     </div>
   ) : null;
 };

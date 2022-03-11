@@ -3,16 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Context } from '../../App';
 import styles from './Post.module.css';
 
-export interface IPost {
-  id: number;
-  image: string;
-  title: string;
-  text: string;
-  date: string;
-  author: string;
-  lesson_num: string;
-}
-
 interface IProps {
   id: number;
   image: string;
