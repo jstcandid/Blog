@@ -1,5 +1,7 @@
 .wrapper {
   padding: 58px 114px 58px 114px;
+  display: flex;
+  justify-content: center;
 }
 
 .login {
@@ -21,6 +23,7 @@ pre {
   color: #75869b;
 }
 
-.onChange {
-  color: #016efc;
+.cont {
+  max-width: 372px;
+  width: 100%;
 }
