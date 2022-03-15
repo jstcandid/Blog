@@ -1,3 +1,5 @@
+import { tmsFetch } from './helpers';
+
 export const registerUser = async (
   username: string,
   email: string,
@@ -42,16 +44,11 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export const getProfile = async () => {
-  const access = localStorage.getItem('access');
-  const response = await fetch(
-    '`https://studapi.teachmeskills.by/auth/users/me/`',
-    {
-      headers: {
-        Authorization: `Bearer ${access}`,
-      },
-    }
+  const response = await tmsFetch(
+    `https://studapi.teachmeskills.by/auth/users/me/`
   );
-  const result = await response.json();
-
-  return result;
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  }
 };

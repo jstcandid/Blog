@@ -1,21 +1,22 @@
-import { useContext, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useContext, useState } from 'react';
 import { Context } from '../../App';
-import { cleanPostState, fetchPost } from '../../redux/actions/PostsActions';
-import { IState } from '../../redux/store';
 import { useHistory } from 'react-router-dom';
 import styles from './AddPost.module.css';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 
-type Params = {
-  postId: string;
-};
-
 export const AddPost = () => {
+  const [image, setImage] = useState('');
+
   const history = useHistory();
-  const { theme, isDark, changeIsDark } = useContext(Context);
+  const { theme } = useContext(Context);
+
+  const onLoad = (event: any) => {
+    setImage(event.target.files[0]);
+  };
+
+  const onClick = (event: any) => {};
+
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.header_wrapper}`}>
@@ -65,6 +66,12 @@ export const AddPost = () => {
             title='Image'
             width='143px'
             height='66px'
+            onClick={() => {}}
+          />
+          <input
+            type='file'
+            accept='image/*'
+            onChange={onLoad}
             onClick={() => {}}
           />
         </div>

@@ -7,7 +7,7 @@ export const ConfirmEmail = () => {
     <div>
       <h1>Registration Confirmation</h1>
       <p>Please activate your account with </p>
-      <p>the activation link in the email</p>
+      <p>the activation link in the email {email}</p>
       <p>Please, check your email</p>
     </div>
   );

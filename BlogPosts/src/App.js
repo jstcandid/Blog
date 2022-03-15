@@ -15,6 +15,7 @@ const themeDark = {
   postBackground: '#0060DC',
   postBorder: '1px solid #f8fafe',
   onChange: '#fff',
+  burger: '#fff',
 };
 
 const themeLight = {
@@ -28,6 +29,7 @@ const themeLight = {
   postBackground: '#ffffff',
   postBorder: '1px solid #c6ddff',
   onChange: '#016efc',
+  burger: '#007BFF',
 };
 
 export const Context = createContext({

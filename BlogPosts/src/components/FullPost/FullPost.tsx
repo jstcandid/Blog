@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Context } from '../../App';
@@ -12,7 +12,7 @@ type Params = {
 };
 
 export const FullPost = () => {
-  const { theme, isDark, changeIsDark } = useContext(Context);
+  const { theme, isDark } = useContext(Context);
   const params: Params = useParams();
 
   const post = useSelector((state: IState) => state.PostsReducer.post);

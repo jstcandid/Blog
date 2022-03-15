@@ -12,9 +12,7 @@ interface IProps {
 
 export const Navbar = ({ makeActive }: IProps) => {
   const { isDark, changeIsDark, theme } = useContext(Context);
-  const { isLoggedIn, username } = useSelector(
-    (state: IState) => state.authReducer
-  );
+  const { isLoggedIn } = useSelector((state: IState) => state.authReducer);
 
   return (
     <div style={theme} className={`${styles.header}`}>
@@ -34,7 +32,7 @@ export const Navbar = ({ makeActive }: IProps) => {
             />
           </svg>
         </div>
-        {isLoggedIn ? <p>{username}</p> : null}
+
         <div className={`${styles.content_wrapper}`}>
           <div className={`${styles.content_navBar}`}>
             <div className={`${styles.content_allPosts}`}>
@@ -43,12 +41,24 @@ export const Navbar = ({ makeActive }: IProps) => {
               </Link>
             </div>
             <div>
-              <Link style={{ textDecoration: 'none' }} to='/login'>
-                <p style={theme}>Login</p>
-              </Link>
-              <Link style={{ textDecoration: 'none' }} to='/registration'>
-                <p style={theme}>Registration</p>
-              </Link>
+              {isLoggedIn ? (
+                <Link style={{ textDecoration: 'none' }} to='/myPost'>
+                  <p style={theme}>My Post</p>
+                </Link>
+              ) : (
+                <Link style={{ textDecoration: 'none' }} to='/login'>
+                  <p style={theme}>Login</p>
+                </Link>
+              )}
+              {isLoggedIn ? (
+                <Link style={{ textDecoration: 'none' }} to='/addPost'>
+                  <p style={theme}>Add Post</p>
+                </Link>
+              ) : (
+                <Link style={{ textDecoration: 'none' }} to='/registration'>
+                  <p style={theme}>Registration</p>
+                </Link>
+              )}
             </div>
           </div>
 

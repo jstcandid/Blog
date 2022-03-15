@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { login, register } from '../../redux/actions/authActions';
+import { login } from '../../redux/actions/authActions';
 import { IState } from '../../redux/store';
 import { validationService } from '../../services/validation';
 import { Button } from '../Button/Button';

@@ -7,6 +7,7 @@ import { IPost } from '../../redux/reducers/PostsReducer';
 import { IState } from '../../redux/store';
 import { Input } from '../Input/Input';
 import { Post } from '../Post/Post';
+import { Slider } from '../Slider/Slider';
 import styles from './PostList.module.css';
 
 const LIMIT = 5;
