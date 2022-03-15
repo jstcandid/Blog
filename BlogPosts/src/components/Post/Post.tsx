@@ -1,6 +1,9 @@
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Context } from '../../App';
 import styles from './Post.module.css';
 
-export interface IPost {
+interface IProps {
   id: number;
   image: string;
   title: string;
@@ -8,17 +11,29 @@ export interface IPost {
   date: string;
 }
 
-interface IProps {
-  item: IPost;
-}
+export const Post = ({ id, image, title, text, date }: IProps) => {
+  const history = useHistory();
 
-export const Post = ({ item }: IProps) => {
+  const { theme } = useContext(Context);
+
   return (
-    <div className={`${styles.card}`}>
-      <img className={`${styles.img}`} src={item.image} alt={item.title} />
-      <p className={`${styles.title}`}>{item.title}</p>
-      <p className={`${styles.text}`}>{item.text}</p>
-      <p className={`${styles.data}`}>{item.date}</p>
+    <div
+      style={{ background: theme.postBackground }}
+      className={`${styles.card}`}
+      onClick={() => {
+        history.push('/post/' + id);
+      }}
+    >
+      <img className={`${styles.img}`} src={image} alt={title} />
+      <p style={{ color: theme.titleColor }} className={`${styles.title}`}>
+        {title}
+      </p>
+      <p style={{ color: theme.textColor }} className={`${styles.text}`}>
+        {text}
+      </p>
+      <p style={{ color: theme.dateColor }} className={`${styles.data}`}>
+        {date}
+      </p>
     </div>
   );
 };

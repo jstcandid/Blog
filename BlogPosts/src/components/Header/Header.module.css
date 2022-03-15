@@ -6,11 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: #f8fafe;
 }
 
 .img {
   width: 27px;
   height: 18px;
   margin-right: 30px;
+}
+
+.username {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  letter-spacing: 0.03em;
+
+  color: #016efc;
 }
